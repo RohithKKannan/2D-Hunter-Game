@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 
 namespace Hunter.Player
@@ -11,7 +12,7 @@ namespace Hunter.Player
         private Vector2 moveDirection;
         public float moveSpeed = 5f;
 
-        public PlayerController(PlayerView _playerPrefab, float _speed)
+        public PlayerController(PlayerView _playerPrefab, float _speed, CinemachineVirtualCamera _camera)
         {
             playerModel = new PlayerModel(_speed);
             playerView = GameObject.Instantiate<PlayerView>(_playerPrefab, Vector3.zero, Quaternion.identity);
@@ -20,6 +21,7 @@ namespace Hunter.Player
             playerView.SetPlayerController(this);
 
             rb = playerView.GetPlayerRigidbody();
+            _camera.Follow = playerView.transform;
         }
 
         public void Move(float _horizontal, float _vertical)

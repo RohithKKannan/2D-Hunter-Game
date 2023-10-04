@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 
 namespace Hunter.Player
@@ -9,9 +10,9 @@ namespace Hunter.Player
 
         private PlayerController player;
 
-        public void SpawnPlayer()
+        public void SpawnPlayer(CinemachineVirtualCamera _camera)
         {
-            player = new PlayerController(playerPrefab, playerSpeed);
+            player = new PlayerController(playerPrefab, playerSpeed, _camera);
         }
     }
 }
