@@ -5,12 +5,13 @@ namespace Hunter.Player
     public class PlayerService : GenericSingleton<PlayerService>
     {
         [SerializeField] private PlayerView playerPrefab;
+        [SerializeField] private float playerSpeed = 5f;
 
         private PlayerController player;
 
-        private void CreateNewPlayer()
+        public void SpawnPlayer()
         {
-            player = new PlayerController(playerPrefab);
+            player = new PlayerController(playerPrefab, playerSpeed);
         }
     }
 }

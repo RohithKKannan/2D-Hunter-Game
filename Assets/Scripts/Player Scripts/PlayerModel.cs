@@ -6,9 +6,11 @@ namespace Hunter.Player
     {
         private PlayerController playerController;
 
-        public PlayerModel()
-        {
+        private float speed;
 
+        public PlayerModel(float _speed)
+        {
+            speed = _speed;
         }
 
         public void SetPlayerController(PlayerController _playerController)
