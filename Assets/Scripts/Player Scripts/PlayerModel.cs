@@ -6,11 +6,13 @@ namespace Hunter.Player
     {
         private PlayerController playerController;
 
-        private float speed;
+        public float speed { get; private set; }
+        public float health { get; private set; }
 
-        public PlayerModel(float _speed)
+        public PlayerModel(float _speed, float _health)
         {
             speed = _speed;
+            health = _health;
         }
 
         public void SetPlayerController(PlayerController _playerController)

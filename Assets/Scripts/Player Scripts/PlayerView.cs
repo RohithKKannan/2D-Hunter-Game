@@ -7,8 +7,8 @@ namespace Hunter.Player
         private PlayerController playerController;
         private Rigidbody2D rb;
 
-        private float horizontal;
-        private float vertical;
+        public float horizontal;
+        public float vertical;
 
         private void Awake()
         {
@@ -36,6 +36,11 @@ namespace Hunter.Player
             GetInput();
 
             playerController.Move(horizontal, vertical);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                playerController.TakeDamage(10f);
+            }
         }
     }
 }
