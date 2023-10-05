@@ -1,4 +1,5 @@
 using Cinemachine;
+using Hunter.Bullet;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,6 +21,11 @@ namespace Hunter.Player
         public void RemovePlayer()
         {
             Destroy(player.playerView.gameObject);
+        }
+
+        public void PlayerFireBullet(Vector2 _position, Vector2 _direction)
+        {
+            BulletService.Instance.SpawnBullet(_position, _direction);
         }
     }
 }

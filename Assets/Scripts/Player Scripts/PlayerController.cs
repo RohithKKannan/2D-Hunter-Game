@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Collections;
 using Cinemachine;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Hunter.Player
@@ -46,6 +49,12 @@ namespace Hunter.Player
         private void PlayerDeath()
         {
             PlayerService.Instance.RemovePlayer();
+        }
+
+        public void PlayerFireBullet()
+        {
+            Vector2 spawnPosition = rb.transform.position + new Vector3(1f, 0f);
+            PlayerService.Instance.PlayerFireBullet(spawnPosition, rb.transform.right);
         }
     }
 }
