@@ -39,7 +39,7 @@ namespace Hunter.Player
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                playerController.TakeDamage(10f);
+                playerController.PlayerFireBullet();
             }
         }
     }
