@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Hunter.Player
 {
-    public class PlayerView : MonoBehaviour
+    public class PlayerView : MonoBehaviour, IBulletDamageable
     {
         private PlayerController playerController;
         private Rigidbody2D rb;
@@ -56,6 +56,11 @@ namespace Hunter.Player
         {
             yield return new WaitForSeconds(timeBeforeNextShot);
             canShoot = true;
+        }
+
+        public void TakeDamage(float _damage)
+        {
+            playerController.TakeDamage(_damage);
         }
     }
 }
