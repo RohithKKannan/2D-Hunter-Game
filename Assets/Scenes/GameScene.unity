@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachineVirtualCamera: {fileID: 1537827953}
+  mainCamera: {fileID: 519420031}
 --- !u!4 &290445135
 Transform:
   m_ObjectHideFlags: 0

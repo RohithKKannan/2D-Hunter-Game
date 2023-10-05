@@ -40,6 +40,7 @@ namespace Hunter.Player
             GetInput();
 
             playerController.Move(horizontal, vertical);
+            playerController.PlayerRotation();
 
             if (Input.GetMouseButton(0))
             {
