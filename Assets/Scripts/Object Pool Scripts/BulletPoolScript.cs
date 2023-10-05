@@ -6,7 +6,8 @@ namespace Hunter.ObjectPool
 {
     public class BulletPoolScript
     {
-        private BulletScript bulletPrefab;
+        public BulletScript bulletPrefab;
+
         private List<BulletPooledItem> pooledItems = new();
 
         public BulletScript GetBullet()

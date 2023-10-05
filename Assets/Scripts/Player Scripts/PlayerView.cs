@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Hunter.Player
@@ -7,8 +8,11 @@ namespace Hunter.Player
         private PlayerController playerController;
         private Rigidbody2D rb;
 
-        public float horizontal;
-        public float vertical;
+        private float horizontal;
+        private float vertical;
+
+        [SerializeField] private float timeBeforeNextShot = 0.1f;
+        private bool canShoot = true;
 
         private void Awake()
         {
@@ -37,10 +41,21 @@ namespace Hunter.Player
 
             playerController.Move(horizontal, vertical);
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetMouseButton(0))
             {
-                playerController.PlayerFireBullet();
+                if (canShoot)
+                {
+                    playerController.PlayerFireBullet();
+                    canShoot = false;
+                    StartCoroutine(BulletTimeCounter());
+                }
             }
+        }
+
+        IEnumerator BulletTimeCounter()
+        {
+            yield return new WaitForSeconds(timeBeforeNextShot);
+            canShoot = true;
         }
     }
 }

@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b514b545d4510d47b33c8fbdf1fac86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBeforeNextShot: 0.1
