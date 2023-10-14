@@ -13,6 +13,7 @@ namespace Hunter.Player
         public PlayerView playerView { get; private set; }
 
         private Rigidbody2D rb;
+        private Transform gun;
         private Vector2 moveDirection;
 
         private float health;
@@ -27,6 +28,7 @@ namespace Hunter.Player
             playerView.SetPlayerController(this);
 
             rb = playerView.GetPlayerRigidbody();
+            gun = playerView.GetPlayerGun();
             _camera.Follow = playerView.transform;
 
             mainCamera = _mainCamera;
@@ -56,7 +58,7 @@ namespace Hunter.Player
 
         public void PlayerFireBullet()
         {
-            Vector2 spawnPosition = rb.transform.position + rb.transform.right;
+            Vector2 spawnPosition = gun.position;
             PlayerService.Instance.PlayerFireBullet(spawnPosition, rb.transform.right);
         }
 

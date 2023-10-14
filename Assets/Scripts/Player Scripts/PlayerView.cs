@@ -11,7 +11,9 @@ namespace Hunter.Player
         private float horizontal;
         private float vertical;
 
+        [SerializeField] private Transform gun;
         [SerializeField] private float timeBeforeNextShot = 0.1f;
+
         private bool canShoot = true;
 
         private void Awake()
@@ -27,6 +29,11 @@ namespace Hunter.Player
         public Rigidbody2D GetPlayerRigidbody()
         {
             return rb;
+        }
+
+        public Transform GetPlayerGun()
+        {
+            return gun;
         }
 
         private void GetInput()
