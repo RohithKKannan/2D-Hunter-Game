@@ -7,14 +7,19 @@ namespace Hunter.Bullet
     public class BulletService : GenericSingleton<BulletService>
     {
         [SerializeField] private BulletScript bulletPrefab;
-        [SerializeField] private Transform bulletsHolder;
 
+        private Transform bulletsHolder;
         private BulletPoolScript bulletPool = new();
 
         protected override void Awake()
         {
             base.Awake();
             bulletPool.bulletPrefab = bulletPrefab;
+        }
+
+        public void SetBulletHolder(Transform _bulletHolder)
+        {
+            bulletsHolder = _bulletHolder;
         }
 
         public void SpawnBullet(Vector2 _position, Vector2 _direction)

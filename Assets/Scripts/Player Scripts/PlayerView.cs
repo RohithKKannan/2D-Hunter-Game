@@ -11,7 +11,9 @@ namespace Hunter.Player
         private float horizontal;
         private float vertical;
 
+        [SerializeField] private Transform gun;
         [SerializeField] private float timeBeforeNextShot = 0.1f;
+
         private bool canShoot = true;
 
         private void Awake()
@@ -29,6 +31,11 @@ namespace Hunter.Player
             return rb;
         }
 
+        public Transform GetPlayerGun()
+        {
+            return gun;
+        }
+
         private void GetInput()
         {
             horizontal = Input.GetAxisRaw("Horizontal");
@@ -40,6 +47,7 @@ namespace Hunter.Player
             GetInput();
 
             playerController.Move(horizontal, vertical);
+            playerController.PlayerRotation();
 
             if (Input.GetMouseButton(0))
             {

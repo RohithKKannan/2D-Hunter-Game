@@ -13,9 +13,9 @@ namespace Hunter.Player
 
         private PlayerController player;
 
-        public void SpawnPlayer(CinemachineVirtualCamera _camera)
+        public void SpawnPlayer(CinemachineVirtualCamera _camera, Camera _mainCamera)
         {
-            player = new PlayerController(playerPrefab, playerSpeed, playerHealth, _camera);
+            player = new PlayerController(playerPrefab, playerSpeed, playerHealth, _camera, _mainCamera);
         }
 
         public void RemovePlayer()
